@@ -9,6 +9,11 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { JobDetailComponent } from './components/job-detail/job-detail.component';
+import { CreateJobComponent } from './components/create-job/create-job.component';
+import { EditJobComponent } from './components/edit-job/edit-job.component';
+
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -16,12 +21,15 @@ import { JobDetailComponent } from './components/job-detail/job-detail.component
     FooterComponent,
     HomeComponent,
     NavbarComponent,
-    JobDetailComponent
+    JobDetailComponent,
+    CreateJobComponent,
+    EditJobComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

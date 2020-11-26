@@ -4,9 +4,10 @@
 
 export const environment = {
   production: false,
-  baseEndpoint: 'https://localhost:44377/',
+  baseEndpoint: 'http://localhost:1028/',
   listJobs: 'api/jobcrud/listjobs',
-  createJob: 'api/jobcrud/createjob'
+  createJob: 'api/jobcrud/createjob',
+  updateJob: 'api/jobcrud/updatejob'
 };
 
 /*

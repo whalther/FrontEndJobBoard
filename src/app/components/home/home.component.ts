@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import { JobCrudService } from '../../services/job-crud.service';
 import { Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-home',
@@ -9,20 +10,18 @@ import { Router} from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   jobs:any = [];
+  showEditComponent = false;
+  showCreateComponent = false;
+  showDetailComponent = false;
   constructor(private jcService : JobCrudService, private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit() {    
     this.listJobs();
-  }
-  createJob(){
-    this.jcService.createJob().subscribe(q => {
-      console.log(q);
-    });  
   }
 
   listJobs(){
     this.jcService.listJobs().subscribe(q => {
-      this.jobs = q.data.jobs;
+      this.jobs = q.data.jobs;      
       if(q.data.jobs.length > 0){
         this.goToJobDetail(0);
       }
@@ -31,7 +30,20 @@ export class HomeComponent implements OnInit {
   }
 
   goToJobDetail(i){    
-    //this.router.navigate(['/job_detail'], { queryParams: { jobTitle: this.jobs[i].jobTitlePosition, jobNumber: this.jobs[i].jobNumber } }); 
+    this.showEditComponent = false;
+    this.showCreateComponent = false;
+    this.showDetailComponent = true;
+    this.jcService.selectJob(this.jobs[i]);
+  }
+  goToCreateJob(){
+    this.showEditComponent = false;
+    this.showCreateComponent = true;
+    this.showDetailComponent = false;
+  }
+  goToEditJob(i){
+    this.showEditComponent = true;
+    this.showCreateComponent = false;
+    this.showDetailComponent = false;
     this.jcService.selectJob(this.jobs[i]);
   }
 }
