@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  baseEndpoint: 'http://localhost:1028/',
+  listJobs: 'api/jobcrud/listjobs',
+  createJob: 'api/jobcrud/createjob',
+  updateJob: 'api/jobcrud/updatejob'
 };
 
 /*

@@ -7,16 +7,29 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { JobDetailComponent } from './components/job-detail/job-detail.component';
+import { CreateJobComponent } from './components/create-job/create-job.component';
+import { EditJobComponent } from './components/edit-job/edit-job.component';
+
+import { FormsModule } from '@angular/forms';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    JobDetailComponent,
+    CreateJobComponent,
+    EditJobComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
